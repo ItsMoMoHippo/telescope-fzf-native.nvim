@@ -30,6 +30,8 @@ pub fn build(b: *std.Build) void {
 
     const install = b.addInstallArtifact(fzf_lib, .{
         .dest_dir = .{ .override = .{ .custom = "../build" } },
+        .pdb_dir = .disabled,
+        .implib_dir = .disabled,
     });
     b.default_step.dependOn(&install.step);
 }
