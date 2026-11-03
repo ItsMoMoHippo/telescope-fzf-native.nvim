@@ -2,7 +2,7 @@ const std = @import("std");
 
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
-    const optimize = b.standardOptimizeOption(.{ .preferred_optimize_mode = .ReleaseFast });
+    const optimize = b.standardOptimizeOption(.{ .preferred_optimize_mode = .fast });
 
     const fzf_mod = b.createModule(.{
         .target = target,
@@ -21,7 +21,7 @@ pub fn build(b: *std.Build) void {
     });
 
     const fzf_lib = b.addLibrary(.{
-        .name = "libfzf",
+        .name = if (target.result.os.tag == .windows) "libfzf" else "fzf",
         .root_module = fzf_mod,
         .linkage = .dynamic,
         .use_llvm = true,
