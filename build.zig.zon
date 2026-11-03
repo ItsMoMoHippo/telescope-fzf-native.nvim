@@ -3,7 +3,13 @@
     .version = "1.0.1",
     .fingerprint = 0x3245da685ca21781,
     .minimum_zig_version = "0.17.0",
-    .dependencies = .{},
+    .dependencies = .{
+        .examiner = .{
+            .url = "https://github.com/Conni2461/examiner/archive/4fa86cbc61773885cd395418ed6ba2da8ebc5483.tar.gz",
+            .hash = "N-V-__8AAAbEAABChuNn0e78ZDHji_k07WacQZfT6oBwQv0W",
+            .lazy = true,
+        },
+    },
     .paths = .{
         "lua",
         "src",
